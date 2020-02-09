@@ -10,4 +10,14 @@ class Controller {
 	public function view($view, $data = []){
 		require_once('../app/views/'.$view.'.php');
 	}
+
+	public function redirect($path){
+
+		/* Redirect browser */
+		$app_url = Config::$app_url;
+
+		header("Location:".$app_url.$path); 
+		exit();
+
+	}
 }
