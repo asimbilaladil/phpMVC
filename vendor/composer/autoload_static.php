@@ -87,11 +87,16 @@ class ComposerStaticInite96574576733135bc8fa93cf6b350c18
         ),
     );
 
+    public static $classMap = array (
+        'User' => __DIR__ . '/../..' . '/app/models/User.php',
+    );
+
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInite96574576733135bc8fa93cf6b350c18::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInite96574576733135bc8fa93cf6b350c18::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInite96574576733135bc8fa93cf6b350c18::$classMap;
 
         }, null, ClassLoader::class);
     }

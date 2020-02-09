@@ -2,22 +2,22 @@
 
 class Home extends Controller {
 
-	public function index($name = ''){
+	protected $user;
 
-		$user = $this->model('User');
-		$user->name = $name;
+	public function __construct(){
 
-		$this->view('home/index', ['name'=> $user->name] );
+		$this->user = $this->model('User');
 	}
 
-	public function create(){
+	public function index($name = ''){
 		
-		echo ($_POST['firstName']);
+		$data = [
+			'name' => 'PHP MVC',
+			'email' => 'email@mail.com'
+		];
+		$this->user->create_user($data);
 
-		//$user = $this->model('User');
-		//$user->name = $name;
-
-		//$this->view('home/index', ['name'=> $user->name] );
+		$this->view('home/index', ['name'=> ''] );
 	}
 
 	
